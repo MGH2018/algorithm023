@@ -1,0 +1,21 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+   /*
+        Lindex指向处理后的数组，数组中都是非零元素
+        Rindex指向待处理的数组，数组中包含零元素
+         */
+        int Lindex = 0;
+        int temp;
+
+        for (int Rindex = 0; Rindex < nums.length; Rindex++) {
+            if (nums[Rindex] != 0) {
+
+                temp = nums[Lindex];
+                nums[Lindex] = nums[Rindex];
+                nums[Rindex] = temp;
+
+                Lindex++;
+            }
+        }
+    }
+}
