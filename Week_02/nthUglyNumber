@@ -1,0 +1,23 @@
+def nthUglyNumber(self, n):
+       if n <=0:
+           return 0
+       uglynums = [0]*n
+       uglynums[0] = 1 
+       index2 = 0 
+       index3 = 0 
+       index5 = 0
+       next_index = 1 
+       while  next_index < n:
+           tmp = min(uglynums[index2]*2 , uglynums[index3]*3 , uglynums[index5]*5 )
+           uglynums[next_index] = tmp 
+           while uglynums[index2] *2 <= uglynums[next_index]:
+               index2 +=1 
+           while uglynums[index3] *3 <= uglynums[next_index]:
+               index3 +=1
+           while uglynums[index5] *5 <= uglynums[next_index]:
+               index5 +=1
+           next_index += 1 
+       ugly = uglynums[-1]
+       return ugly 
+
+
